@@ -15,7 +15,7 @@ s10='</span><span class="friday hh_t">'; %add in Frid
 s11='</span><span class="saturday hh_t">'; %add in sat
 s12='</span><span class="icon">'; %add in icons
 s13='</span></div>';
-s10a='';
+s10a=
 
 
 
