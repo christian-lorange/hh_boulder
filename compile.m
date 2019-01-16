@@ -21,7 +21,7 @@ s13='</span></div>';
 v=[];
 
 for i=1:height(data)
-  
+    
     
     venues=strcat(s1,char(table2array(data(i,56))),s2,num2str(i),s3,char(table2array(data(i,1))),s4,char(table2array(data(i,57))),s5,char(table2array(data(i,36))),s6,char(table2array(data(i,37))),s7,char(table2array(data(i,38))),s8,char(table2array(data(i,39))),s9,char(table2array(data(i,40))),s10,char(table2array(data(i,41))),s11,char(table2array(data(i,42))),s12,char(table2array(data(i,55))),s13);
     
@@ -54,24 +54,24 @@ s5=',5:';
 s6=',6:';
 
 hhjs=[];
- 
+
 for i=1:height(data)
     
     i;
     hh=[];
     for j=1:7
-    
         
         
-    hh_t=strcat(num2str(j-1),': {1:',num2str(table2array(data(i,20+(j*2)))),',2:',num2str(table2array(data(i,21+(j*2)))),'}');
-     
-    if j==1
-    hh=[hh,hh_t];
-    else
-    hh=[hh,',',hh_t];   
-    end
-    
-    
+        
+        hh_t=strcat(num2str(j-1),': {1:',num2str(table2array(data(i,20+(j*2)))),',2:',num2str(table2array(data(i,21+(j*2)))),'}');
+        
+        if j==1
+            hh=[hh,hh_t];
+        else
+            hh=[hh,',',hh_t];
+        end
+        
+        
     end
     
     hhjs=[hhjs,num2str(i-1),':{',hh,'},'];
@@ -127,13 +127,13 @@ for i=1:height(data)
     
     
     if ((table2array(data(i,61))))==1
-   s10b='<br><b>Kids Deals:</b><br>';
-   s10c= char(table2array(data(i,63)));
-else
-    s10b='';
-    s10c='';
-end
-  
+        s10b='<br><b>Kids Deals:</b><br>';
+        s10c= char(table2array(data(i,63)));
+    else
+        s10b='';
+        s10c='';
+    end
+    
     
     cards=strcat(s1,char(table2array(data(i,1))),s2,char(table2array(data(i,6))),s2b,char(table2array(data(i,6))),s3,char(table2array(data(i,36))),s4,char(table2array(data(i,37))),s5,char(table2array(data(i,38))),s6,char(table2array(data(i,39))),s7,char(table2array(data(i,40))),s8,char(table2array(data(i,41))),s9,char(table2array(data(i,42))),char(s10),char(table2array(data(i,21))),char(s10b),char(s10c),s11,'",');
     
@@ -142,7 +142,7 @@ end
     modal=[modal;{strcat('<div class="mySlides">',cards,'</div>')}];
     
 end
-    
+
 filePh = fopen('comp.txt','w');
 fprintf(filePh,'%s\n',complete{:});
 fclose(filePh);
@@ -178,13 +178,13 @@ fclose (fid2) ;
 gps=[];
 
 for i=1:height(data)
-  
-
+    
+    
     loc=char(table2array(data(i,60)));
     
     gps=[gps;{loc}];
     
-
+    
 end
 
 gps=['var gps=[';gps];
