@@ -124,7 +124,7 @@ for i=1:height(data)
          i
         s10a='<br><b>Happy Hour Deals:</b><br>'%{Description}
     else
-        sl0a='test'
+        sl0a=''
     end
     
     
