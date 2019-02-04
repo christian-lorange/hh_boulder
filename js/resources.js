@@ -1,4 +1,4 @@
-//file updated at 01/31/19 11:16:28.661
+//file updated at 02/04/19 14:57:06.281
 
 
 
@@ -112,12 +112,15 @@ var hh = {0:{0: {1:0,2:0},1: {1:0,2:0},2: {1:0,2:0},3: {1:0,2:0},4: {1:0,2:0},5:
                elements[i].style.color = 'blue';
                elements[i].style.fontSize='1.4em';
                elements[i].parentElement.style.backgroundColor='#adc5ed';
+                elements[i].parentNode.setAttribute("data-category",  elements[i].parentNode.getAttribute("data-category")+" hh");
             } else if (today >=hh[i][l][1]-1 && today <= hh[i][l][1]) {
               elements[i].parentElement.style.backgroundColor='#fff772';
+               elements[i].parentNode.setAttribute("data-category",  elements[i].parentNode.getAttribute("data-category")+" hh");
             } else if (today >=hh[i][l][2]-1 && today <= hh[i][l][2]) {
               elements[i].style.color = 'blue';
               elements[i].style.fontSize='1.4em';
               elements[i].parentElement.style.backgroundColor='#ef7a7a';
+               elements[i].parentNode.setAttribute("data-category",  elements[i].parentNode.getAttribute("data-category")+" hh");
             } else {}
     }
 

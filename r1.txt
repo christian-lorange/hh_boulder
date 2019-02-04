@@ -41,6 +41,7 @@ $filterCheckboxes.on('change', function() {
         if ($.inArray(currentFilterValue, filterValues) != -1) {
           matched = true;
           return false;
+          
         }
       });
 
