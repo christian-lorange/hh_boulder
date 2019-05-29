@@ -1,4 +1,4 @@
-//file updated at 03/27/19 13:21:28.548
+//file updated at 05/29/19 07:51:02.629
 
 
 function days() {
@@ -185,7 +185,7 @@ var gps=[ [40.014304,-105.250337], [40.008168,-105.276599], [40.013401,-105.2789
 "<b>Name:</b>The Corner<br><b>Address:</b><a href='http://maps.google.com/?q=1100 13th St Boulder CO' target='_system' title='Directions'>1100 13th St Boulder CO</a><br><b>Happy Hour Times:</b><br>Sunday:3pm-6pm<br>Monday:3pm-6pm<br>Tuesday:3pm-6pm<br>Wednesday:3pm-6pm<br>Thursday:3pm-6pm<br>Friday:3pm-6pm<br>Saturday:3pm-6pm<br><b>Happy Hour Deals:</b><br>$3 Buffalo Gold Ale<br>$4 Draft Beer<br>$5 Well Drinks<br>$7 Specialty Cocktails<br>Appetizer Specials.",
 "<b>Name:</b>The Corner Bar<br><b>Address:</b><a href='http://maps.google.com/?q=2115 13th StBoulder, CO 80302' target='_system' title='Directions'>2115 13th StBoulder, CO 80302</a><br><b>Happy Hour Times:</b><br>Sunday:3pm-6pm<br>Monday:3pm-6pm<br>Tuesday:3pm-6pm<br>Wednesday:3pm-6pm<br>Thursday:3pm-6pm<br>Friday:3pm-6pm<br>Saturday:3pm-6pm<br><b>Happy Hour Deals:</b><br>Daily 3 - 6 pm <br> Select appetizers under $7 <br> $7 specialty cocktails, Select wines under $6, $4 draft beers,  $5 well drinks",
 "<b>Name:</b>The Cup - Espresso Cafe<br><b>Address:</b><a href='http://maps.google.com/?q=1521 Pearl St Boulder CO' target='_system' title='Directions'>1521 Pearl St Boulder CO</a><br><b>Happy Hour Times:</b><br>Sunday:<br>Monday:<br>Tuesday:<br>Wednesday:<br>Thursday:<br>Friday:<br>Saturday:<br><b>Happy Hour Deals:</b><br>",
-"<b>Name:</b>The Kitchen<br><b>Address:</b><a href='http://maps.google.com/?q=1039 Pearl StBoulder, CO 80302' target='_system' title='Directions'>1039 Pearl StBoulder, CO 80302</a><br><b>Happy Hour Times:</b><br>Sunday:2pm-5pm<br>Monday:2pm-5pm<br>Tuesday:2pm-5pm<br>Wednesday:2pm-5pm<br>Thursday:2pm-5pm<br>Friday:2pm-5pm<br>Saturday:2pm-5pm<br><b>Happy Hour Deals:</b><br>Daily 2-5 pm <br> Food: $4-8 appetizers, $12  charcuterie and cheese boards, $8-14 meals, $5 desserts <br> Drinks: $6 Wine and Cocktails, $4 Beer",
+"<b>Name:</b>The Kitchen<br><b>Address:</b><a href='http://maps.google.com/?q=1039 Pearl StBoulder, CO 80302' target='_system' title='Directions'>1039 Pearl StBoulder, CO 80302</a><br><b>Happy Hour Times:</b><br>Sunday:2pm-5pm<br>Monday:2pm-5pm<br>Tuesday:2pm-5pm<br>Wednesday:2pm-5pm<br>Thursday:2pm-5pm<br>Friday:2pm-5pm<br>Saturday:2pm-5pm<br><b>Happy Hour Deals:</b><br>Daily 2-5 pm <br> Food: $15 double cheeseburger and beer<br>$16 oysters on the half shell (6x) and a happy hour beer or wine<br>Selection of $5 beers<br>Selection of $6 cocktails<br>Selection of $7 wine",
 "<b>Name:</b>The Mediterranean<br><b>Address:</b><a href='http://maps.google.com/?q=1002 Walnut StBoulder, CO 80302' target='_system' title='Directions'>1002 Walnut StBoulder, CO 80302</a><br><b>Happy Hour Times:</b><br>Sunday:3pm-6.3pm<br>Monday:3pm-6.3pm<br>Tuesday:3pm-6.3pm<br>Wednesday:3pm-6.3pm<br>Thursday:3pm-6.3pm<br>Friday:3pm-6.3pm<br>Saturday:3pm-6.3pm<br><b>Happy Hour Deals:</b><br>DRAFT BEERS 1.00 off<br>RED OR WHITE SANGRIA 5.25<br>HOUSE WINE 5.50<br>WELL COCKTAILS 5.25<br>HOUSE MARGARITA OR WELL MARTINI 6.75<br>Special Priced Tapas",
 "<b>Name:</b>The North End at 4580<br><b>Address:</b><a href='http://maps.google.com/?q=4580 Broadway St, Boulder, CO 80304-4802' target='_system' title='Directions'>4580 Broadway St, Boulder, CO 80304-4802</a><br><b>Happy Hour Times:</b><br>Sunday:<br>Monday:<br>Tuesday:<br>Wednesday:<br>Thursday:<br>Friday:<br>Saturday:<br><b>Happy Hour Deals:</b><br>",
 "<b>Name:</b>The Point Cafe<br><b>Address:</b><a href='http://maps.google.com/?q=1101 13th St Boulder CO' target='_system' title='Directions'>1101 13th St Boulder CO</a><br><b>Happy Hour Times:</b><br>Sunday:<br>Monday:<br>Tuesday:<br>Wednesday:<br>Thursday:<br>Friday:<br>Saturday:<br><b>Happy Hour Deals:</b><br>",
@@ -249,6 +249,10 @@ var gps=[ [40.014304,-105.250337], [40.008168,-105.276599], [40.013401,-105.2789
     geolocate.innerHTML = 'Geolocation is not available';
 } else {
     geolocate.onclick = function (e) {
+
+        var geomodal = document.getElementById('geomyModal');
+        geomodal.style.display = "block";
+
         e.preventDefault();
         e.stopPropagation();
         mymap.locate();
@@ -263,12 +267,14 @@ var gps=[ [40.014304,-105.250337], [40.008168,-105.276599], [40.013401,-105.2789
 // on it, and add a single marker.
   mymap.on('locationfound', function(e) {
 
-
+    var geomodal = document.getElementById('geomyModal');
+    geomodal.style.display = "none";
  
     
     mymap.panTo(new L.LatLng(e.latlng.lat, e.latlng.lng));
     L.marker([e.latlng.lat, e.latlng.lng],{icon: current}).addTo(mymap)
-    .bindPopup('Here I am!');
+    .bindPopup('Here I am!')
+    .openPopup();
     
 
     console.log(e.latlng.lat);
@@ -284,6 +290,8 @@ var gps=[ [40.014304,-105.250337], [40.008168,-105.276599], [40.013401,-105.2789
 // If the user chooses not to allow their location
 // to be shared, display an error message.
 mymap.on('locationerror', function() {
+    var geomodal = document.getElementById('geomyModal');
+    geomodal.style.display = "none";
     geolocate.innerHTML = 'Position could not be found';
 });
 
